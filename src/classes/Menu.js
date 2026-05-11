@@ -57,7 +57,7 @@ function newMenuMain()
                                 deps.prompt(
                                     {
                                         title: '常规设置',
-                                        label: `常规设置<div class="label-desc">“更改应用程序的整体功能。</div>`,
+                                        label: `常规设置<div class="label-desc">更改应用程序的整体功能。</div>`,
                                         useHtmlLabel: true,
                                         alwaysOnTop: true,
                                         type: 'multiInput',
@@ -125,7 +125,7 @@ function newMenuMain()
                                 deps.prompt(
                                     {
                                         title: '实例设置',
-                                        label: `实例设置<div class="label-desc">这可以填写官方的 ntfy.sh 服务器，也可以是自行托管的域名或IP。</div>`,
+                                        label: `实例设置<div class="label-desc">官方的 ntfy.sh 服务器，或自行托管的域名/IP。</div>`,
                                         useHtmlLabel: true,
                                         alwaysOnTop: true,
                                         type: 'multiInput',
@@ -507,7 +507,7 @@ function newMenuMain()
             }
         },
         {
-            label: 'Sponsor',
+            label: '赞助',
             click()
             {
                 deps.shell.openExternal( `https://buymeacoffee.com/aetherinox` );

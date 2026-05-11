@@ -932,7 +932,7 @@ function activeDevTools()
         }) );
         menuItem.submenu.insert( menuHeader.items.length + 2, new MenuItem(
         {
-            label: 'Toggle Dev Tools',
+            label: '切换开发者工具',
             accelerator: process.platform === 'darwin' ? 'ALT+CMD+I' : 'CTRL+SHIFT+I',
             click: () =>
             {
