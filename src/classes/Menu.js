@@ -40,24 +40,24 @@ function newMenuMain()
 {
     const menuMain = [
         {
-            label: '&App',
+            label: '应用',
             id: 'app',
             submenu: [
                 {
-                    label: '&Settings',
+                    label: '设置',
                     id: 'settings',
                     accelerator: 'S',
                     submenu: [
                         {
-                            label: 'General',
+                            label: '常规设置',
                             id: 'general',
                             accelerator: ( deps.bHotkeysEnabled === 1 || deps.store.getInt( 'bHotkeys' ) === 1 ) ? 'CTRL+G' : '',
                             click: function ()
                             {
                                 deps.prompt(
                                     {
-                                        title: 'General Settings',
-                                        label: `General Settings<div class="label-desc">Change the overall functionality of the app.</div>`,
+                                        title: '常规设置',
+                                        label: `常规设置<div class="label-desc">“更改应用程序的整体功能。</div>`,
                                         useHtmlLabel: true,
                                         alwaysOnTop: true,
                                         type: 'multiInput',
@@ -68,27 +68,27 @@ function newMenuMain()
                                         multiInputOptions:
                                         [
                                             {
-                                                label: 'Enable Developer Tools',
-                                                description: 'Add developer tools to top menu',
-                                                selectOptions: { 0: 'Disabled', 1: 'Enabled' },
+                                                label: '启用开发者工具',
+                                                description: '在顶部菜单栏中添加开发者工具',
+                                                selectOptions: { 0: '禁用', 1: '启用' },
                                                 value: deps.store.get( 'bDevTools' )
                                             },
                                             {
-                                                label: 'Enable Hotkeys',
-                                                description: 'Enable the ability to use hotkeys to navigate',
-                                                selectOptions: { 0: 'Disabled', 1: 'Enabled' },
+                                                label: '启用快捷键',
+                                                description: '允许使用快捷键进行导航',
+                                                selectOptions: { 0: '禁用', 1: '启用' },
                                                 value: deps.store.get( 'bHotkeys' )
                                             },
                                             {
-                                                label: 'Quit on Exit',
-                                                description: 'Quit app instead of send-to-tray for close button',
-                                                selectOptions: { 0: 'Disabled', 1: 'Enabled' },
+                                                label: '退出时关闭',
+                                                description: '点击关闭按钮时直接退出应用，而不是最小化到托盘',
+                                                selectOptions: { 0: '禁用', 1: '启用' },
                                                 value: deps.store.get( 'bQuitOnClose' )
                                             },
                                             {
-                                                label: 'Minimize to Tray',
-                                                description: 'Start app minimized in tray',
-                                                selectOptions: { 0: 'Disabled', 1: 'Enabled' },
+                                                label: '最小化到托盘',
+                                                description: '启动时最小化至系统托盘',
+                                                selectOptions: { 0: '禁用', 1: '启用' },
                                                 value: deps.store.get( 'bStartHidden' )
                                             }
                                         ]
@@ -118,14 +118,14 @@ function newMenuMain()
                             }
                         },
                         {
-                            label: 'Instance',
+                            label: '实例设置',
                             accelerator: ( deps.bHotkeysEnabled === 1 || deps.store.getInt( 'bHotkeys' ) === 1 ) ? 'CTRL+I' : '',
                             click: function ()
                             {
                                 deps.prompt(
                                     {
-                                        title: 'Instance Settings',
-                                        label: `Instance Settings<div class="label-desc">This can either be the official ntfy.sh server, or your own self-hosted domain / ip.</div>`,
+                                        title: '实例设置',
+                                        label: `实例设置<div class="label-desc">这可以填写官方的 ntfy.sh 服务器，也可以是自行托管的域名或IP。</div>`,
                                         useHtmlLabel: true,
                                         alwaysOnTop: true,
                                         type: 'multiInput',
@@ -134,18 +134,18 @@ function newMenuMain()
                                         multiInputOptions:
                                         [
                                             {
-                                                label: 'Instance URL',
-                                                description: 'Remove everything to set back to official ntfy.sh server.',
+                                                label: '实例 URL',
+                                                description: '移除所有内容以恢复为官方的 ntfy.sh 服务器。',
                                                 value: deps.store.get( 'instanceURL' ) || deps.defInstanceUrl,
                                                 inputAttrs: {
-                                                    placeholder: 'Enter URL to ntfy server',
+                                                    placeholder: '请输入 ntfy 服务器的 URL',
                                                     type: 'url'
                                                 }
                                             },
                                             {
-                                                label: 'Localhost Mode',
-                                                description: 'Enable this if you are running a localhost ntfy server',
-                                                selectOptions: { 0: 'Disabled', 1: 'Enabled' },
+                                                label: '本地模式',
+                                                description: '如果你正在 localhost 上运行 ntfy 服务器，请启用此选项。',
+                                                selectOptions: { 0: '禁用', 1: '启用' },
                                                 value: deps.store.get( 'bLocalhost' )
                                             }
                                         ]
@@ -208,14 +208,14 @@ function newMenuMain()
                             }
                         },
                         {
-                            label: 'API Token',
+                            label: 'API 令牌',
                             accelerator: ( deps.bHotkeysEnabled === 1 || deps.store.getInt( 'bHotkeys' ) === 1 ) ? 'CTRL+T' : '',
                             click: function ()
                             {
                                 deps.prompt(
                                     {
-                                        title: 'Set API Token',
-                                        label: `API Token\u003cdiv class="label-desc"\u003eGenerate an API token within ntfy.sh  or your self-hosted instance and provide it below to receive desktop push notifications.\u003c/div\u003e`,
+                                        title: '设置 API 令牌',
+                                        label: `API 令牌\u003cdiv class="label-desc"\u003e请前往 ntfy.sh 或者自托管的实例中生成一个 API 令牌，以接收桌面通知。\u003c/div\u003e`,
                                         useHtmlLabel: true,
                                         value: deps.store.get( 'apiToken' ),
                                         alwaysOnTop: true,
@@ -241,14 +241,14 @@ function newMenuMain()
                             }
                         },
                         {
-                            label: 'Topics',
+                            label: '订阅主题',
                             accelerator: ( deps.bHotkeysEnabled === 1 || deps.store.getInt( 'bHotkeys' ) === 1 ) ? 'CTRL+SHIFT+T' : '',
                             click: function ()
                             {
                                 deps.prompt(
                                     {
-                                        title: 'Set Subscribed Topics',
-                                        label: `Subscribed Topics<div class="label-desc">Specify a list of topics you would like to receive push notifications for, separated by commas.<br><br>Ex: ${ deps.defTopics }</div>`,
+                                        title: '设置订阅的主题',
+                                        label: `订阅主题<div class="label-desc">请指定希望接收桌面通知的主题列表，多个主题使用逗号分隔。<br><br>例如: ${ deps.defTopics }</div>`,
                                         useHtmlLabel: true,
                                         value: deps.store.getSanitized( 'topics', deps.defTopics ),
                                         alwaysOnTop: true,
@@ -288,14 +288,14 @@ function newMenuMain()
                             }
                         },
                 {
-                    label: 'Notifications',
+                    label: '通知设置',
                     accelerator: ( deps.bHotkeysEnabled === 1 || deps.store.getInt( 'bHotkeys' ) === 1 ) ? 'CTRL+N' : '',
                     click: function ()
                     {
                         deps.prompt(
                             {
-                                title: 'Notifications',
-                                label: `Notification Settings<div class="label-desc">Determines how notifications will behave</div>`,
+                                title: '通知设置',
+                                label: `通知设置<div class="label-desc">决定通知的行为方式。</div>`,
                                 useHtmlLabel: true,
                                 alwaysOnTop: true,
                                 type: 'multiInput',
@@ -306,14 +306,14 @@ function newMenuMain()
                                 multiInputOptions:
                                 [
                                     {
-                                        label: 'Sticky Notifications',
-                                        description: 'Stay on screen until dismissed',
-                                        selectOptions: { 0: 'Disabled', 1: 'Enabled' },
+                                        label: '常驻通知',
+                                        description: '保持通知持续显示在桌面上，直到被手动关闭。',
+                                        selectOptions: { 0: '禁用', 1: '启用' },
                                         value: deps.store.get( 'bPersistentNoti' )
                                     },
                                     {
-                                        label: 'Datetime Format',
-                                        description: 'Determines the format for date and timestamps',
+                                        label: '日期格式',
+                                        description: '决定日期和时间戳的显示格式。',
                                         value: deps.store.get( 'datetime' ) || deps.defDatetime,
                                         inputAttrs:
                                         {
@@ -322,8 +322,8 @@ function newMenuMain()
                                         }
                                     },
                                     {
-                                        label: 'Polling Rate',
-                                        description: 'The number of seconds between requests to get new notifications.',
+                                        label: '轮询频率',
+                                        description: '轮询获取新通知数据间的时间间隔',
                                         value: deps.store.get( 'pollrate' ) || deps.defPollrate,
                                         inputAttrs: {
                                             type: 'number',
@@ -373,7 +373,7 @@ function newMenuMain()
             type: 'separator'
         },
                 {
-            label: 'Quit',
+            label: '退出',
             id: 'quit',
             accelerator: ( deps.bHotkeysEnabled === 1 || deps.store.getInt( 'bHotkeys' ) === 1 ) ? 'CTRL+Q' : '',
             click: function ()
@@ -384,16 +384,16 @@ function newMenuMain()
     ]
 },
 {
-    label: '&Edit',
+    label: '编辑',
     id: 'edit',
     submenu: [
         {
-            label: 'Undo',
+            label: '撤销',
             accelerator: 'CmdOrCtrl+Z',
             role: 'undo'
         },
         {
-            label: 'Redo',
+            label: '恢复',
             accelerator: 'Shift+CmdOrCtrl+Z',
             role: 'redo'
         },
@@ -401,33 +401,33 @@ function newMenuMain()
             type: 'separator'
         },
         {
-            label: 'Cut',
+            label: '剪切',
             accelerator: 'CmdOrCtrl+X',
             role: 'cut'
         },
         {
-            label: 'Copy',
+            label: '复制',
             accelerator: 'CmdOrCtrl+C',
             role: 'copy'
         },
         {
-            label: 'Paste',
+            label: '粘贴',
             accelerator: 'CmdOrCtrl+V',
             role: 'paste'
         },
         {
-            label: 'Select All',
+            label: '全选',
             accelerator: 'CmdOrCtrl+A',
             role: 'selectall'
         }
     ]
 },
 {
-    label: '&View',
+    label: '视图',
     id: 'view',
     submenu: [
         {
-            label: 'Back',
+            label: '返回',
             accelerator: 'CmdOrCtrl+B',
             click: function ( item, focusedWindow )
             {
@@ -437,7 +437,7 @@ function newMenuMain()
             }
         },
         {
-            label: 'Forward',
+            label: '前进',
             accelerator: 'CmdOrCtrl+F',
             click: function ( item, focusedWindow )
             {
@@ -450,7 +450,7 @@ function newMenuMain()
             type: 'separator'
         },
         {
-            label: 'Reload',
+            label: '重新加载',
             accelerator: 'CmdOrCtrl+R',
             click: function ( item, focusedWindow )
             {
@@ -459,7 +459,7 @@ function newMenuMain()
             }
         },
         {
-            label: 'Toggle Full Screen',
+            label: '切换全屏',
             accelerator: ( function ()
             {
                 if ( process.platform === 'darwin' )
@@ -476,18 +476,18 @@ function newMenuMain()
     ]
 },
 {
-    label: '&Help',
+    label: '帮助',
     id: 'help',
     submenu: [
         {
-            label: 'Send Test Notification',
+            label: '发送测试通知',
             click()
             {
                 deps.toasted.notify(
                 {
-                    title: `${ deps.appTitle } - Test Notification`,
+                    title: `${ deps.appTitle } - 测试通知`,
                     subtitle: `${ deps.appVer }`,
-                    message: `This is a test notification which determines if NtfyToast and toasted-notifier are working on your system. If you can see this, then everything is good.`,
+                    message: `这是一条测试通知，用于检测 NtfyToast 和 toasted-notifier 是否在当前的系统上正常工作。如果你能看到这条通知，说明一切正常。`,
                     sound: 'Pop',
                     open: deps.store.get( 'instanceURL' ),
                     persistent: true,
@@ -500,7 +500,7 @@ function newMenuMain()
             type: 'separator'
         },
         {
-            label: 'Check for Updates',
+            label: '检查更新',
             click()
             {
                 deps.shell.openExternal( `${ deps.packageJson.homepage }` );
@@ -515,10 +515,10 @@ function newMenuMain()
         },
         {
             id: 'about',
-            label: 'About',
+            label: '关于',
             click()
             {
-                const aboutTitle = `About`;
+                const aboutTitle = `关于`;
                 const guiAbout = new BrowserWindow(
                 {
                     width: 480,
@@ -591,7 +591,7 @@ function newMenuContext()
 
     return Menu.buildFromTemplate( [
         {
-            label: 'Show App',
+            label: '显示主页面',
             click: function ()
             {
                 deps.store.set( 'indicatorMessages', 0 );
@@ -600,7 +600,7 @@ function newMenuContext()
             }
         },
         {
-            label: 'Quit',
+            label: '退出',
             click: function ()
             {
                 deps.gracefulShutdown();
